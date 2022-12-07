@@ -9,13 +9,16 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 	DemoButton()
 	{
 		super("HTV Calcutor 2.0");
-
 		txans=new TextField("Enter numbers");
 		txans.setBounds(10,50,215,55);
 		add(txans);
 		txans.addActionListener(this);
 		txans.addMouseListener(this);
 		txans.addMouseMotionListener(this);
+		txans=new TextField("Enter numbers");
+		txans.setBounds(10,50,215,55);
+		add(txans);
+		txans.addMouseListener(this);
 
 		bt1=new Button("1");
 		bt1.setBounds(10,110,50,50);
@@ -143,7 +146,7 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 	public void actionPerformed(ActionEvent e){}
 	public void mouseMoved(MouseEvent e){
 		var S = e.getSource();
-		
+
 
 	}
 	public void mouseDragged(MouseEvent e){}
