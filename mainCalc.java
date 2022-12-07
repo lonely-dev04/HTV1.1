@@ -161,7 +161,97 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		setLayout(null);
 		setVisible(true);
 	}
-	public void actionPerformed(ActionEvent e){}
+	public void actionPerformed(ActionEvent e)
+	{
+		String query,ans;
+		if(e.getSource()==bt1)
+		{
+			query=txans.getText();
+			txans.setText(query+"1");
+		}
+		if(e.getSource()==bt2)
+		{
+			query=txans.getText();
+			txans.setText(query+"2");
+		}
+		if(e.getSource()==bt3)
+		{
+			query=txans.getText();
+			txans.setText(query+"3");
+		}
+		if(e.getSource()==bt4)
+		{
+			query=txans.getText();
+			txans.setText(query+"4");
+		}
+		if(e.getSource()==bt5)
+		{
+			query=txans.getText();
+			txans.setText(query+"5");
+		}
+		if(e.getSource()==bt6)
+		{
+			query=txans.getText();
+			txans.setText(query+"6");
+		}
+		if(e.getSource()==bt7)
+		{
+			query=txans.getText();
+			txans.setText(query+"7");
+		}
+		if(e.getSource()==bt8)
+		{
+			query=txans.getText();
+			txans.setText(query+"8");
+		}
+		if(e.getSource()==bt9)
+		{
+			query=txans.getText();
+			txans.setText(query+"9");
+		}
+		if(e.getSource()==bt0)
+		{
+			query=txans.getText();
+			txans.setText(query+"0");
+		}
+		if(e.getSource()==btsm)
+		{
+			query=txans.getText();
+			txans.setText(query+"+");
+		}
+		if(e.getSource()==btsb)
+		{
+			query=txans.getText();
+			txans.setText(query+"-");
+		}
+		if(e.getSource()==btml)
+		{
+			query=txans.getText();
+			txans.setText(query+"*");
+		}
+		if(e.getSource()==btdi)
+		{
+			query=txans.getText();
+			txans.setText(query+"/");
+		}
+		if(e.getSource()==btdt)
+		{
+			query=txans.getText();
+			txans.setText(query+".");
+		}
+		if(e.getSource()==btac)
+		{
+			query=txans.getText();
+			txans.setText("");
+		}
+		if(e.getSource()==bteq)
+		{
+			query=txans.getText();
+			ans=postfix(query);
+			txans.setText(ans);
+		}
+		
+	}
 	public void mouseMoved(MouseEvent e){
 		bt1.setBackground(globalColor);
 		bt2.setBackground(globalColor);
