@@ -276,12 +276,12 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		if(e.getSource()==btop)
 		{
 			query=txans.getText();
-			txans.setText("(");
+			txans.setText(query+"(");
 		}
 		if(e.getSource()==btcp)
 		{
 			query=txans.getText();
-			txans.setText(")");
+			txans.setText(query+")");
 		}
 		if(e.getSource()==btc)
 		{
