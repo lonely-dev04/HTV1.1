@@ -85,6 +85,27 @@ class DemoButton extends Frame implements ActionListener
 		setLayout(null);
 		setVisible(true);
 	}
+	public void mouseClicked(MouseEvent e)
+	{
+		if(e.getSource()==txans)
+			txans.setText("");
+	}
+	public void mouseEntered(MouseEvent e)
+	{
+		//hjvgdvf
+	}
+	public void mouseExited(MouseEvent e)
+	{
+		//yusdgf
+	}
+	public void mouseReleased(MouseEvent e)
+	{
+		//yugsd
+	}
+	public void mousePressed(MouseEvent e)
+	{
+		//hyugsdyu
+	}
 	DemoLabel()
 	{
 		l1 = new  Label("Calcutor 2.0");
