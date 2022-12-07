@@ -1,10 +1,10 @@
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.plaf.LabelUI;
 class DemoButton extends Frame implements ActionListener,MouseListener,MouseMotionListener
 {
 	TextField txans;
 	Button bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt0,btsm,btsb,btml,btdi,bteq,btdt,btac,pothu;
+	Color globalColor = new Color(187, 157, 177);
 	Label l1;
 	DemoButton()
 	{
@@ -139,19 +139,73 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		btdt.addMouseListener(this);
 		btdt.addMouseMotionListener(this);
 
+		bt1.setBackground(globalColor);
+		bt2.setBackground(globalColor);
+		bt3.setBackground(globalColor);
+		bt4.setBackground(globalColor);
+		bt5.setBackground(globalColor);
+		bt6.setBackground(globalColor);
+		bt7.setBackground(globalColor);
+		bt8.setBackground(globalColor);
+		bt9.setBackground(globalColor);
+		bt0.setBackground(globalColor);
+		btsm.setBackground(globalColor);
+		btsb.setBackground(globalColor);
+		btml.setBackground(globalColor);
+		btdi.setBackground(globalColor);
+		btdt.setBackground(globalColor);
+		btac.setBackground(globalColor);
+		bteq.setBackground(globalColor);
+
 		setSize(400,400);
 		setLayout(null);
 		setVisible(true);
 	}
 	public void actionPerformed(ActionEvent e){}
 	public void mouseMoved(MouseEvent e){
-		var S = e.getSource();
+		bt1.setBackground(globalColor);
+		bt2.setBackground(globalColor);
+		bt3.setBackground(globalColor);
+		bt4.setBackground(globalColor);
+		bt5.setBackground(globalColor);
+		bt6.setBackground(globalColor);
+		bt7.setBackground(globalColor);
+		bt8.setBackground(globalColor);
+		bt9.setBackground(globalColor);
+		bt0.setBackground(globalColor);
+		btsm.setBackground(globalColor);
+		btsb.setBackground(globalColor);
+		btml.setBackground(globalColor);
+		btdi.setBackground(globalColor);
+		btdt.setBackground(globalColor);
+		btac.setBackground(globalColor);
+		bteq.setBackground(globalColor);
+		if(e.getSource() == bt1){bt1.setBackground(Color.white);}
+		else if(e.getSource() == bt2){bt2.setBackground(Color.white);}
+		else if(e.getSource() == bt2){bt2.setBackground(Color.white);}
+		else if(e.getSource() == bt3){bt3.setBackground(Color.white);}
+		else if(e.getSource() == bt4){bt4.setBackground(Color.white);}
+		else if(e.getSource() == bt5){bt5.setBackground(Color.white);}
+		else if(e.getSource() == bt6){bt6.setBackground(Color.white);}
+		else if(e.getSource() == bt7){bt7.setBackground(Color.white);}
+		else if(e.getSource() == bt8){bt8.setBackground(Color.white);}
+		else if(e.getSource() == bt9){bt9.setBackground(Color.white);}
+		else if(e.getSource() == bt0){bt0.setBackground(Color.white);}
+		else if(e.getSource() == btsm){btsm.setBackground(Color.white);}
+		else if(e.getSource() == btsb){btsb.setBackground(Color.white);}
+		else if(e.getSource() == btml){btml.setBackground(Color.white);}
+		else if(e.getSource() == btdi){btdi.setBackground(Color.white);}
+		else if(e.getSource() == btdt){btdt.setBackground(Color.white);}
+		else if(e.getSource() == btac){btac.setBackground(Color.white);}
+		else if(e.getSource() == bteq){bteq.setBackground(Color.white);}
+		
 
 
 	}
 	public void mouseDragged(MouseEvent e){}
 	public void mouseClicked(MouseEvent e)
 	{
+		if(e.getSource() == bt1){bt1.setBackground(Color.green);}
 		if(e.getSource()==txans)
 			txans.setText("");
 	}
@@ -161,7 +215,23 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 	}
 	public void mouseExited(MouseEvent e)
 	{
-		//yusdgf
+		bt1.setBackground(globalColor);
+		bt2.setBackground(globalColor);
+		bt3.setBackground(globalColor);
+		bt4.setBackground(globalColor);
+		bt5.setBackground(globalColor);
+		bt6.setBackground(globalColor);
+		bt7.setBackground(globalColor);
+		bt8.setBackground(globalColor);
+		bt9.setBackground(globalColor);
+		bt0.setBackground(globalColor);
+		btsm.setBackground(globalColor);
+		btsb.setBackground(globalColor);
+		btml.setBackground(globalColor);
+		btdi.setBackground(globalColor);
+		btdt.setBackground(globalColor);
+		btac.setBackground(globalColor);
+		bteq.setBackground(globalColor);
 	}
 	public void mouseReleased(MouseEvent e)
 	{
