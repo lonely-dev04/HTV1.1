@@ -19,8 +19,7 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		txans.addMouseListener(this);
 		txans.addMouseMotionListener(this);
 
-
-		bt1=new Button("1");
+bt1=new Button("1");
 		bt1.setBounds(20,165,50,50);
 		add(bt1);
 		bt1.addActionListener(this);
@@ -181,7 +180,6 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		btcp.setBackground(globalColor);
 		btop.setBackground(globalColor);
 		bteq.setForeground(Color.BLACK);
-		
 		
 		addWindowListener(this);
 		setBackground(Color.DARK_GRAY);
