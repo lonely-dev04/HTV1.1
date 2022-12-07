@@ -266,6 +266,16 @@ bt1=new Button("1");
 			query=txans.getText();
 			txans.setText(query+".");
 		}
+		if(e.getSource()==btop)
+		{
+			query=txans.getText();
+			txans.setText(query+"(");
+		}
+		if(e.getSource()==btcp)
+		{
+			query=txans.getText();
+			txans.setText(query+")");
+		}
 		if(e.getSource()==btac)
 		{
 			query=txans.getText();
