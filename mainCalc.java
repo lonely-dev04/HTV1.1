@@ -4,7 +4,7 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 {
 	TextField txans;
 	Button bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt0,btsm,btsb,btml,btdi,bteq,btdt,btac,pothu;
-	Color globalColor = new Color(187, 157, 177);
+	Color globalColor = new Color(222, 222, 222);
 	Label l1;
 	DemoButton()
 	{
@@ -15,10 +15,7 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		txans.addActionListener(this);
 		txans.addMouseListener(this);
 		txans.addMouseMotionListener(this);
-		txans=new TextField("Enter numbers");
-		txans.setBounds(10,50,215,55);
-		add(txans);
-		txans.addMouseListener(this);
+
 
 		bt1=new Button("1");
 		bt1.setBounds(10,110,50,50);
