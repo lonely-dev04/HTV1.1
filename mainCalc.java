@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-
 class DemoButton extends Frame implements ActionListener,MouseListener,MouseMotionListener,WindowListener
 {
 	TextField txans;
@@ -8,6 +7,9 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 	Color globalColor = new Color(222, 222, 222);
 	Font font1 = new Font("SansSerif", Font.BOLD, 20);
 	Label l1;
+	int optop=-1,max,top=-1;
+	Double[] eval=new Double[100];
+	char opstack[]=new char[100];
 	DemoButton()
 	{
 		super("HTV Calc 2.0");
@@ -18,7 +20,6 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		txans.addMouseListener(this);
 		txans.addMouseMotionListener(this);
 		txans.setFont(font1);
-
 
 		bt1=new Button("1");
 		bt1.setBounds(20,165,50,50);
@@ -293,8 +294,9 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		if(e.getSource()==bteq)
 		{
 			query=txans.getText();
-			//ans=postfix(query);
-			txans.setText(query);
+			query=postfix(query);
+			ans=postevalu(query);
+			txans.setText(ans);
 		}
 		
 	}
@@ -320,9 +322,6 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		else if(e.getSource() == btc){btc.setBackground(Color.PINK);}
 		else if(e.getSource() == btac){btac.setBackground(Color.magenta);}
 		else if(e.getSource() == bteq){bteq.setBackground(Color.black);bteq.setForeground(Color.white);}
-		
-
-
 	}
 	public void mouseDragged(MouseEvent e){}
 	public void mouseClicked(MouseEvent e){}
@@ -362,12 +361,149 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 	public void windowDeiconified(WindowEvent we){}
 	public void windowIconified(WindowEvent we){}
 	public void windowOpened(WindowEvent we){}
-
+	public String postfix(String exp){
+		int i=0;
+		String post="",space=" ";
+		exp=exp+"}";
+		char[] arrexp=exp.toCharArray();
+		while(arrexp[i]!='}')
+		{
+			if(arrexp[i]=='(')
+			{
+				push('(');
+			}
+			else if(arrexp[i]==')')
+			{
+				while((optop!=-1)&&(opstack[optop]!='('))
+				{
+					post=post+" "+Character.toString(pop());
+				}
+				char brace=pop();
+			}
+			else if(arrexp[i]=='+'||arrexp[i]=='-'||arrexp[i]=='*'||arrexp[i]=='/')
+			{
+				if(optop==-1||arrexp[i]!=')')
+				{
+					push(arrexp[i]);
+					post=post+" ";
+				}
+				while((optop!=-1)&&(arrexp[i]!='(')&&(getprio(opstack[optop])>getprio(arrexp[i])))
+				{
+					post=post+Character.toString(pop());
+				}
+			}
+			else
+			{
+				post=post+Character.toString(arrexp[i]);
+			}
+			i=i+1;
+		}
+		post=post+space.toString();
+		while((optop!=-1)&&(opstack[optop]!=')'))
+		{
+			post=post+Character.toString(pop());
+		}
+		post.trim();
+		post=post+Character.toString('v');
+		return post;
+	}
+	public void push(char val) {
+		optop=optop+1;
+		opstack[optop]=val;
+	}
+	public char pop() {
+		char val=' ';
+		if(optop>-1)
+		{
+			val=opstack[optop];
+			optop=optop-1;
+		}
+		return val;
+	}
+	public int getprio(char op) {
+		int pri=-1;
+		if(op=='/'||op=='*')
+			pri=1;
+		else if(op=='+'||op=='-')
+			pri=0;
+		return pri;
+	}
+	public String postevalu(String post) {
+		System.out.println(post);
+		double num1=0,num2=0,value=0;
+		int i=0,j=0;
+		String temp="";
+		char[] postexp=post.toCharArray();
+		char chtemp;
+		while(postexp[i]!='v')
+		{
+			chtemp=postexp[i];
+			System.out.println("exp:"+postexp[i]);
+			if(chtemp=='.'||chtemp=='1'||chtemp=='2'||chtemp=='3'||chtemp=='4'||chtemp=='5'||chtemp=='6'||chtemp=='7'||chtemp=='8'||chtemp=='9'||chtemp=='0')
+			{
+				System.out.println("chtemp=='.'||chtemp=='1'||chtemp=='2'||chtemp=='3'||chtemp=='4'||chtemp=='5'||chtemp=='6'||chtemp=='7'||chtemp=='8'||chtemp=='9'||chtemp=='0'");
+				temp=temp+Character.toString(postexp[i]);
+				System.out.println("temp:"+temp);
+				System.out.println();
+			}
+			else if(chtemp==' '&&temp!="")
+			{
+				System.out.println("chtemp==' '&&temp!=");
+				pushev(Double.parseDouble(temp));
+				temp="";
+				System.out.println("temp:"+temp);
+				System.out.println();
+			}
+			else if(chtemp==' '&&temp=="")
+			{
+				System.out.println("chtemp==' '");
+				i=i;
+				System.out.println();
+			}
+			else if(chtemp=='+'||chtemp!='-'||chtemp!='*'||chtemp!='/')
+			{
+				System.out.println("chtemp=='+'||chtemp!='-'||chtemp!='*'||chtemp!='/'");
+				num2=popev();
+				System.out.println("num2:"+num2);
+				num1=popev();
+				System.out.println("num1:"+num1);
+				switch (postexp[i]) {
+					case '+':
+						value=num1+num2;
+						break;
+					case '-':
+						value=num1-num2;
+						break;
+					case '*':
+						value=num1*num2;
+						break;
+					case '/':
+						value=num1/num2;
+						break;
+				}
+				System.out.println("value:"+value);
+				pushev(value);
+				System.out.println();
+			}
+			i=i+1;
+		}
+		System.out.println("out of while");
+		return Double.toString(popev());
+	}
+	public void pushev(double val) {
+		System.out.println("push:"+val);
+		eval[++top]=val;
+	}
+	public double popev(){
+		double val=0;
+		if(top!=-1)
+		{
+			val=eval[top--];
+		}
+		System.out.println("poped:"+val);
+		return val;
+	}
 	public static void main(String args[]){
 		new DemoButton();
 	}
-
-
-
-
 }
