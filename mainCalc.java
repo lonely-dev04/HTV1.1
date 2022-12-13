@@ -22,6 +22,8 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		txans.addMouseMotionListener(this);
 		txans.setFont(font1);
 		this.addKeyListener(this);
+		txans.addKeyListener(this);
+		txans.setFocusable(false);
 
 
 		bt1=new Button("1");
