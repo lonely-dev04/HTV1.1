@@ -21,7 +21,6 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		txans.addMouseListener(this);
 		txans.addMouseMotionListener(this);
 		txans.setFont(font1);
-		txans.addKeyListener(this);
 		this.addKeyListener(this);
 
 
@@ -337,7 +336,7 @@ class DemoButton extends Frame implements ActionListener,MouseListener,MouseMoti
 		int len;
 		int kc = e.getKeyCode();
 		System.out.println(kc);
-		if (kc >= 96 && kc <= 105||kc==106||kc==107||kc==109||kc==111||kc==57||kc==48)
+		if (kc >= 96 && kc <= 105||kc==106||kc==107||kc==109||kc==111||kc==57||kc==48||e.getKeyChar()=='.'||e.getKeyChar()=='1'||e.getKeyChar()=='2'||e.getKeyChar()=='3'||e.getKeyChar()=='4'||e.getKeyChar()=='5'||e.getKeyChar()=='6'||e.getKeyChar()=='7'||e.getKeyChar()=='8'||e.getKeyChar()=='9'||e.getKeyChar()=='0')
 		{
 			String s = e.getKeyChar()+"";
 			System.out.println(s);
